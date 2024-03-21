@@ -19,24 +19,22 @@ async function createAirplane(req, res) {
         SuccessResponse.data = airplane;
         return res
                 .status(StatusCodes.CREATED)
-                .json(successResponse);
-                // .json({
-                //     success: true,
-                //     message: 'Successfully created Airplane',
-                //     data: airplane,
-                //     error: {}
-                // });
+                .json({
+                    success: true,
+                    message: 'Successfully created Airplane',
+                    data: airplane,
+                    error: {}
+                });
     } catch(error) {
         ErrorResponse.error = error;
         return res
                 .status(StatusCodes.INTERNAL_SERVER_ERROR)
-                .json(ErrorResponse);
-                // .json({
-                //         success: false,
-                //         message: 'Something went wrong creating Airplane',
-                //         data: {},
-                //         error: error
-                //     });
+                .json({
+                        success: false,
+                        message: 'Something went wrong creating Airplane',
+                        data: {},
+                        error: error
+                    });
     }
 }
 
